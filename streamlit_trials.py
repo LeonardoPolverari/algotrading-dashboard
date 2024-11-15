@@ -343,3 +343,11 @@ elif page == "Visualization":
 elif page == "Main Page":
     st.title("Main Page")
     st.write("This is where the main functionality would go.")
+        # Sample DataFrame
+    if 'data' not in st.session_state:
+        st.warning("\U000026A0 Warning: Please upload a file first!")
+    else:
+        df = st.session_state['data']
+        # Create selectbox for indicators
+        indicators = ['bollinger', 'support', 'resistance', 'sma']
+        strategy = st.multiselect("Select Strategy", indicators, key='indicators', max_selections=4)
